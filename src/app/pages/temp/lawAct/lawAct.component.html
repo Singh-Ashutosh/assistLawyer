@@ -1,0 +1,13 @@
+<h4>Law Act</h4>
+<div>
+    <select>
+        <option *ngFor="let lawAct of lawActs">{{lawAct.lawactname}}</option>
+    </select>
+    <form [formGroup]="lawActFormGroup">
+        <label>Law Act Name</label>
+        <input type="text" formControlName="lawactname">
+        <label>Law Act Description</label>
+        <textarea formControlName="lawactdescription"></textarea>
+        <button (click)="addLawAct()">Add Law Act</button>
+    </form>
+</div>
