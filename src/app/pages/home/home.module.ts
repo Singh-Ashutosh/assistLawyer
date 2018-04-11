@@ -9,6 +9,5 @@ import { HomeRoutingModule, HomeComponents } from './home-routing.module';
 })
 export class HomeModule {
   constructor() {
-    console.log('home module');
   }
 }

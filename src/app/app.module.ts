@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
-import { TempPageModule } from './pages/temp/temp.module';
 
 import { AppComponent } from './app.component';
 import { AssistHeader } from './assist-header/assist-header.component';
@@ -18,16 +17,15 @@ import { AssistFooter } from './assist-footer/assist-footer.component';
   declarations: [
     AppComponent,
     AssistHeader,
-    AssistFooter,
+    AssistFooter
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    TempPageModule,
     ReactiveFormsModule,
-    // PagesModule,
+    PagesModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent, AssistHeader, AssistFooter]

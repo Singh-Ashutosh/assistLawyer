@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LawActPage } from './';
 
 const routes: Routes = [
-  { path: '/', component: LawActPage, pathMatch: 'full' }
+  { path: '', component: LawActPage, pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -13,7 +13,6 @@ const routes: Routes = [
 })
 export class LawActRoutingModule {
   constructor() {
-    console.log('Law Act Routing');
   }
 }
 

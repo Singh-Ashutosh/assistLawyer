@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './';
+import { LawSectionPage } from './';
 
 const routes: Routes = [
-  { path: '', component: HomePage }
+  { path: '', component: LawSectionPage, pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule {
+export class LawSectionRoutingModule {
   constructor() {
   }
 }
 
-export const HomeComponents = [HomePage];
+export const LawSectionComponents = [LawSectionPage];

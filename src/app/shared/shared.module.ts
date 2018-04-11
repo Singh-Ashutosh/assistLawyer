@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-    HttpCallServices
+    HttpCallServices, HtmlEditor
 } from './';
 
 @NgModule({
@@ -14,3 +14,5 @@ import {
     exports: []
 })
 export class SharedModule { }
+
+export const SharedComponents = [HtmlEditor]
