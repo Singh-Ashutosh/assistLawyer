@@ -1,0 +1,14 @@
+.nav-left {
+  float: left;
+  width: 40%;
+}
+
+.nav-right {
+  margin: 30px 0px;
+  float: right;
+  width: 60%;
+}
+
+.nav-options {
+  margin: 0px 5px;
+}

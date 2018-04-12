@@ -1,13 +1,25 @@
-<h4>Law Act</h4>
-<div>
-    <select>
-        <option *ngFor="let lawAct of lawActs">{{lawAct.lawactname}}</option>
-    </select>
-    <form [formGroup]="lawActFormGroup">
-        <label>Law Act Name</label>
-        <input type="text" formControlName="lawactname">
-        <label>Law Act Description</label>
-        <textarea formControlName="lawactdescription"></textarea>
-        <button (click)="addLawAct()">Add Law Act</button>
-    </form>
+<div class="assist-body">
+    <h2>Law Act</h2>
+    <div>
+        <div>
+            <h4>Law Act</h4>
+            <select>
+                <option *ngFor="let lawAct of lawActs">{{lawAct.lawactname}}</option>
+            </select>
+        </div>
+        <div>
+            <h3>Add Law Act</h3>
+            <form [formGroup]="lawActFormGroup">
+                <div>
+                    <h4>Law Act Name</h4>
+                    <input type="text" formControlName="lawactname">
+                </div>
+                <div>
+                    <h4>Law Act Description</h4>
+                    <textarea formControlName="lawactdescription"></textarea>
+                </div>
+                <button (click)="addLawAct()">Add Law Act</button>
+            </form>
+        </div>
+    </div>
 </div>

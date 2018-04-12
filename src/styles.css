@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+.assist-header {
+  color: black;
+  background: rgb(4, 0, 252);
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.assist-footer {
+  background: rgb(4, 0, 252);
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+
+.assist-body {
+  overflow-y: scroll;
+  padding: 70px 0px;
+}
+
+.assist-app {
+  overflow-y: hidden;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}

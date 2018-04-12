@@ -1,1 +1,31 @@
-<h4>Law Chapter</h4>
+<div class="assist-body">
+    <h2>Law Chapter</h2>
+    <div>
+        <div>
+            <h4>Law Act</h4>
+            <select>
+                <option *ngFor="let lawAct of lawActs">{{lawAct.lawactname}}</option>
+            </select>
+        </div>
+        <div>
+            <h4>Law Chapter</h4>
+            <select>
+                <option *ngFor="let lawChapter of lawChapters">{{lawChapter.lawchaptername}}</option>
+            </select>
+        </div>
+        <div>
+            <h3>Add Law Chapter</h3>
+            <form [formGroup]="lawChapterFormGroup">
+                <div>
+                    <h4>Law Chapter Name</h4>
+                    <input type="text" formControlName="lawchaptername">
+                </div>
+                <div>
+                    <h4>Law Chapter Description</h4>
+                    <textarea formControlName="lawchapterdescription"></textarea>
+                </div>
+                <button (click)="addLawChapter()">Add Law Chapter</button>
+            </form>
+        </div>
+    </div>
+</div>

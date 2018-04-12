@@ -1,3 +1,34 @@
-<h4>Law Section</h4>
+<div class="assist-body">
+    <h2>Law Section</h2>
 
-<html-editor></html-editor>
+    <div>
+        <div>
+            <h4>Law Act</h4>
+            <select>
+                <option *ngFor="let lawAct of lawActs">{{lawAct.lawactname}}</option>
+            </select>
+        </div>
+        <div>
+            <h4>Law Chapter</h4>
+            <select>
+                <option *ngFor="let lawChapter of lawChapters">{{lawChapter.lawchaptername}}</option>
+            </select>
+        </div>
+        <div>
+            <h3>Add Law Section</h3>
+            <form [formGroup]="lawSectionFormGroup">
+                <div>
+                    <h4>Law Section Name</h4>
+                    <input type="text" formControlName="lawsectionname">
+                </div>
+                <div>
+                    <h4>Law Section Description</h4>
+                    <ck-editor formControlName="lawsectiondescription" name="editor" skin="moono-lisa" language="en" [config]="{uiColor: '#66AB16'}"></ck-editor>
+                </div>
+                <div>
+                    <button (click)="addLawSection()">Add Law Section</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

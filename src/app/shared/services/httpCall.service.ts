@@ -1,27 +1,72 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
 export class HttpCallServices {
-    private lawActUrl;
+  private lawActUrl;
+  private lawChapterUrl;
+  private lawSectionUrl;
 
-    constructor(private http: HttpClient) {
-        this.lawActUrl = 'https://8i94lr2q8c.execute-api.ap-south-1.amazonaws.com/dev/lawact';
-    }
+  constructor(private http: HttpClient) {
+    this.lawActUrl =
+      "https://8i94lr2q8c.execute-api.ap-south-1.amazonaws.com/dev/lawact";
+    this.lawChapterUrl =
+      "https://tfl9128m55.execute-api.ap-south-1.amazonaws.com/dev/lawchapter";
+    this.lawSectionUrl =
+      "https://6ea9rb825m.execute-api.ap-south-1.amazonaws.com/dev/lawsection";
+  }
 
+  //Law Act Operations
+  getLawAct() {
+    return this.http.get(this.lawActUrl);
+  }
 
+  addLawAct(newLawAct) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.post(
+      this.lawActUrl,
+      JSON.stringify(newLawAct),
+      httpOptions
+    );
+  }
 
-    getLawAct() {
-        return this.http.get(this.lawActUrl);
-    }
+  //Law Chapter Operations
+  getLawChapter() {
+    return this.http.get(this.lawChapterUrl);
+  }
 
-    addLawAct(newLawAct) {
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json'
-            })
-        };
-        return this.http.post(this.lawActUrl, JSON.stringify(newLawAct), httpOptions);
+  addLawChapter(newLawChapter) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.post(
+      this.lawChapterUrl,
+      JSON.stringify(newLawChapter),
+      httpOptions
+    );
+  }
 
-    }
+  //Law Section Operations
+  getLawSection() {
+    return this.http.get(this.lawSectionUrl);
+  }
+
+  addLawSection(newLawSection) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http.post(
+      this.lawSectionUrl,
+      JSON.stringify(newLawSection),
+      httpOptions
+    );
+  }
 }

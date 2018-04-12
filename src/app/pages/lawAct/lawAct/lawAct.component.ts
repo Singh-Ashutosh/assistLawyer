@@ -15,18 +15,18 @@ export class LawActPage {
             lawactname: [],
             lawactdescription: []
         });
-        this.getLaws();
+        this.getLawActs();
     }
 
     addLawAct() {
         this.httpCallServices.addLawAct(this.lawActFormGroup.value).subscribe((res) => {
-            this.getLaws();
+            this.getLawActs();
         }, (err) => {
             console.log(err);
         });
     }
 
-    getLaws() {
+    getLawActs() {
         this.httpCallServices.getLawAct().subscribe((res) => {
             this.lawActs = res;
         });
