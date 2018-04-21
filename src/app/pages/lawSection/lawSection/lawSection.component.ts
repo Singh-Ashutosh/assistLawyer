@@ -9,16 +9,20 @@ import { HttpCallServices } from "../../../shared";
 export class LawSectionPage {
   lawActs: any;
   lawChapters: any;
+  lawDivisions: any;
   private lawSectionFormGroup: FormGroup;
   constructor(
     private httpCallServices: HttpCallServices,
     private _fb: FormBuilder
   ) {
     this.lawSectionFormGroup = this._fb.group({
-      lawsectionname: [""],
-      lawsectiondescription: [""]
+      lawdivisionid: [''],
+      lawactid: [''],
+      lawchapterid: [''],
+      lawsectionname: [],
+      lawsectiondescription: []
     });
-
+    this.getLawDivisions();
     this.getLawActs();
     this.getLawChapter();
   }
@@ -35,7 +39,23 @@ export class LawSectionPage {
     });
   }
 
+  getLawDivisions() {
+    this.httpCallServices.getLawDivision().subscribe(res => {
+      this.lawDivisions = res;
+    });
+  }
+
   addLawSection() {
     console.log(this.lawSectionFormGroup.value);
+    this.httpCallServices
+      .addLawSection(this.lawSectionFormGroup.value)
+      .subscribe(
+        res => {
+          this.lawSectionFormGroup.reset();
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 }

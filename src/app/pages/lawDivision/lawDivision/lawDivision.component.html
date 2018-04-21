@@ -1,0 +1,26 @@
+<div class="assist-body">
+    <h2>Law Division</h2>
+    <div>
+        <div>
+            <h4>Law Division</h4>
+            <select>
+                <option value="" disabled selected>Select Law Division</option>
+                <option *ngFor="let lawDivision of lawDivisions">{{lawDivision.lawdivisionname}}</option>
+            </select>
+        </div>
+        <div>
+            <h3>Add Law Division</h3>
+            <form [formGroup]="lawDivisionFormGroup">
+                <div>
+                    <h4>Law Division Name</h4>
+                    <input type="text" formControlName="lawdivisionname">
+                </div>
+                <div>
+                    <h4>Law Division Description</h4>
+                    <textarea formControlName="lawdivisiondescription"></textarea>
+                </div>
+                <button (click)="addLawDivision()">Add Law Division</button>
+            </form>
+        </div>
+    </div>
+</div>

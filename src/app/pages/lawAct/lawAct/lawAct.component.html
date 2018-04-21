@@ -4,12 +4,20 @@
         <div>
             <h4>Law Act</h4>
             <select>
+                <option value="" disabled selected>Select Law Act</option>
                 <option *ngFor="let lawAct of lawActs">{{lawAct.lawactname}}</option>
             </select>
         </div>
         <div>
-            <h3>Add Law Act</h3>
             <form [formGroup]="lawActFormGroup">
+                <h3>Add Law Act</h3>
+                <div>
+                    <h4>Law Division</h4>
+                    <select formControlName="lawdivisionid">
+                        <option value="" disabled selected>Select Law Division</option>
+                        <option *ngFor="let lawDivision of lawDivisions" value={{lawDivision.lawdivisionid}}>{{lawDivision.lawdivisionname}}</option>
+                    </select>
+                </div>
                 <div>
                     <h4>Law Act Name</h4>
                     <input type="text" formControlName="lawactname">

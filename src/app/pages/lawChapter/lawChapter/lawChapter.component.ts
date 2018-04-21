@@ -8,6 +8,7 @@ import { HttpCallServices } from "../../../shared";
 })
 export class LawChapterPage {
   lawChapterFormGroup: FormGroup;
+  lawDivisions: any;
   lawActs: any;
   lawChapters: any;
   constructor(
@@ -15,11 +16,14 @@ export class LawChapterPage {
     private _fb: FormBuilder
   ) {
     this.lawChapterFormGroup = this._fb.group({
+      lawactid: [''],
+      lawdivisionid: [''],
       lawchaptername: [],
       lawchapterdescription: []
     });
     this.getLawAct();
     this.getLawChapter();
+    this.getLawDivisions();
   }
 
   getLawAct() {
@@ -32,5 +36,25 @@ export class LawChapterPage {
     this.httpCallServices.getLawChapter().subscribe(res => {
       this.lawChapters = res;
     });
+  }
+
+  getLawDivisions() {
+    this.httpCallServices.getLawDivision().subscribe(res => {
+      this.lawDivisions = res;
+    });
+  }
+
+  addLawChapter() {
+    this.httpCallServices
+      .addLawChapter(this.lawChapterFormGroup.value)
+      .subscribe(
+        res => {
+          this.getLawChapter();
+          this.lawChapterFormGroup.reset();
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 }
